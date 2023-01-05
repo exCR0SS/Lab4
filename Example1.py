@@ -3,9 +3,11 @@
 
 class Main:
 
-    height = int(input("Введите высоту: "))
-    width = int(input("Введите ширину: "))
+    # height = int(input("Введите высоту: "))
+    # width = int(input("Введите ширину: "))
     userSymbol = input("Введите символ, которым необходимо нарисовать прямоугольник: ")
+    height = 23
+    width = 11
 
     for i in range(height):
         if i == 0 or i == height-1:
