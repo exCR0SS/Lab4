@@ -18,16 +18,24 @@ class Main:
 
 
     def get_encrypt(txt, key, encrypt):
+        # Функция шифровки / дешифровки в зависимости от 3-го параметра, True - шифрует, False - дешифрует.
         alphabetEN = 'abcdefghijklmnopqrstuvwxyz'
         alphabetRU = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
         resText = ''
 
         if alphabetRU.find(txt[0]) != -1:
             for i in range(len(txt)):
-                resText += alphabetRU[alphabetRU.index(txt[i]) + (key if encrypt == True else -abs(key))]
+                if alphabetRU.index(txt[i]) + abs(key) <= len(alphabetRU) - 1:
+                    resText += alphabetRU[alphabetRU.index(txt[i]) + (abs(key) if encrypt == True else -abs(key))]
+                else:
+                    resText += alphabetRU[(len(alphabetRU) - 1) - alphabetRU.index(txt[i]) + (abs(key) if encrypt == True else -abs(key)) - 1]
+
         else:
             for i in range(len(txt)):
-                resText += alphabetEN[alphabetEN.index(txt[i]) + (key if encrypt == True else -abs(key))]
+                if alphabetEN.index(txt[i]) + key <= len(alphabetEN) - 1:
+                    resText += alphabetEN[alphabetEN.index(txt[i]) + (abs(key) if encrypt == True else -abs(key))]
+                else:
+                    resText += alphabetEN[(len(alphabetEN) - 1) - alphabetEN.index(txt[i]) + (abs(key) if encrypt == True else -abs(key)) - 1]
         return resText
 
 
