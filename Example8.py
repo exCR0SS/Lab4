@@ -27,15 +27,16 @@ class Main:
             for i in range(len(txt)):
                 if alphabetRU.index(txt[i]) + abs(key) <= len(alphabetRU) - 1:
                     resText += alphabetRU[alphabetRU.index(txt[i]) + (abs(key) if encrypt == True else -abs(key))]
-                else:
-                    resText += alphabetRU[(len(alphabetRU) - 1) - alphabetRU.index(txt[i]) + (abs(key) if encrypt == True else -abs(key)) - 1]
+                elif alphabetRU.index(txt[i]) + abs(key) > len(alphabetRU) - 1:
+                    resText += alphabetRU[alphabetRU.index(txt[i]) + (abs(key) if encrypt == True else -abs(key)) - len(alphabetRU)]
+
 
         else:
             for i in range(len(txt)):
-                if alphabetEN.index(txt[i]) + key <= len(alphabetEN) - 1:
+                if alphabetEN.index(txt[i]) + abs(key) <= len(alphabetEN) - 1:
                     resText += alphabetEN[alphabetEN.index(txt[i]) + (abs(key) if encrypt == True else -abs(key))]
-                else:
-                    resText += alphabetEN[(len(alphabetEN) - 1) - alphabetEN.index(txt[i]) + (abs(key) if encrypt == True else -abs(key)) - 1]
+                elif alphabetEN.index(txt[i]) + abs(key) > len(alphabetEN) - 1:
+                    resText += alphabetEN[alphabetEN.index(txt[i]) + (abs(key) if encrypt == True else -abs(key)) - len(alphabetEN)]
         return resText
 
 
