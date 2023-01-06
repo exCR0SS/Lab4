@@ -29,8 +29,6 @@ class Main:
                     resText += alphabetRU[alphabetRU.index(txt[i]) + (abs(key) if encrypt == True else -abs(key))]
                 elif alphabetRU.index(txt[i]) + abs(key) > len(alphabetRU) - 1:
                     resText += alphabetRU[alphabetRU.index(txt[i]) + (abs(key) if encrypt == True else -abs(key)) - len(alphabetRU)]
-
-
         else:
             for i in range(len(txt)):
                 if alphabetEN.index(txt[i]) + abs(key) <= len(alphabetEN) - 1:
