@@ -17,4 +17,3 @@ class Main:
         m += 1
 
     print(*numArray)
-
