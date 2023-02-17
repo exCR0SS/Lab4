@@ -6,18 +6,14 @@
 import random
 import numpy
 
-class Main:
+sizeArray1 = int(input("Количество столбцов: "))
+sizeArray2 = int(input("Количество строк: "))
+numArray = []
 
-    sizeArray1 = int(input("Количество столбцов: "))
-    sizeArray2 = int(input("Количество строк: "))
-    numArray = []
+for i in range(sizeArray2):
+    numArray.append([random.randint(1, 10) for n in range(sizeArray1)])
 
+newArray = numpy.transpose(numArray)
 
-    for i in range(sizeArray2):
-        numArray.append([random.randint(1, 10) for n in range(sizeArray1)])
-
-    newArray = numpy.transpose(numArray)
-
-    print("Исходный массив: ", *numArray)
-    print("Транспонированный массив: ", *newArray)
-
+print("Исходный массив: ", *numArray)
+print("Транспонированный массив: ", *newArray)
